@@ -1,26 +1,52 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+import Home from "./views/Home/Home.vue";
+import store from '@/store/store';
 
 Vue.use(Router);
+
+const routes: { path: string, name: string, component: any }[] = [
+  {
+    path: "/",
+    name: "home",
+    component: Home
+  },
+  {
+    path: "/Login",
+    name: "Login",
+    component: () =>
+      import(/* webpackChunkName: "Login" */ "./views/Login/Login.vue")
+  },
+  {
+    path: "/Register",
+    name: "Register",
+    component: () =>
+      import(/* webpackChunkName: "Register" */ "./views/Register/Register.vue")
+  },
+  {
+    path: "/Dashboard",
+    name: "Dashboard",
+    component: () =>
+      import(/* webpackChunkName: "Dashboard" */ "./views/Dashboard/Dashboard.vue"),
+      beforeEnter(to, from, next) {
+        if(store.state.authentication.idToken) {
+          next()
+        } else {
+          next('/register')
+        }
+    },
+    children: [
+      {
+        path: '/Gallery',
+        component: () =>
+          import(/* webpackChunkName: "Gallery" */ "./views/Gallery/Gallery.vue")
+      },
+    ]
+  }
+]
 
 export default new Router({
   mode: "history",
   base: process.env.BASE_URL,
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      component: Home
-    },
-    {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
-    }
-  ]
+  routes
 });
