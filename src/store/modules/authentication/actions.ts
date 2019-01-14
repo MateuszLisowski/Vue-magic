@@ -80,12 +80,12 @@ export const actions = {
       })
       .catch(error => console.log(error))
   },
+  logout ({commit}) {
+    commit('clearUserData')
+    commit('clearAuthData')
+    router.replace('/')
+  }
 }
 
-
-
-    //     const foundUser = users.find(user =>
-    //       user.password === this.password &&
-    //       user.username === this.username)
 
 

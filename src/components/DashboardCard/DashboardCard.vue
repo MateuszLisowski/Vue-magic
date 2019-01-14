@@ -49,6 +49,10 @@ export default class DashboardCard extends Vue {
   border: none;
   box-shadow: 0 1.5rem 3rem rgba(0,0,0,.5);
   
+  .img-fluid {
+    width: 100%;
+  }
+  
   .card-block {
     position: relative;
     padding: 2rem;

@@ -17,5 +17,12 @@ export const mutations = {
   },
   saveUserData (state, user) {
     state.user = user
+  },
+  clearUserData (state) {
+    state.user = {}
+  },
+  clearAuthData (state) {
+    state.idToken = null
+    state.userId = null
   }
 }

@@ -8,7 +8,7 @@ Vue.use(Router);
 const routes: { path: string, name: string, component: any }[] = [
   {
     path: "/",
-    name: "home",
+    name: "Home",
     component: Home
   },
   {
@@ -35,13 +35,62 @@ const routes: { path: string, name: string, component: any }[] = [
           next('/register')
         }
     },
-    children: [
-      {
-        path: '/Gallery',
-        component: () =>
-          import(/* webpackChunkName: "Gallery" */ "./views/Gallery/Gallery.vue")
-      },
-    ]
+  },
+  {
+    path: '/Gallery',
+    name: 'Gallery',
+    component: () =>
+      import(/* webpackChunkName: "Gallery" */ "./views/Gallery/Gallery.vue"),
+      beforeEnter(to, from, next) {
+        if(store.state.authentication.idToken) {
+          next()
+        } else {
+          next('/register')
+        }
+    },
+  },
+  {
+    path: '/myaccount',
+    name: 'Account',
+    component: () =>
+      import(/* webpackChunkName: "Account" */ "./views/Account/Account.vue"),
+      beforeEnter(to, from, next) {
+        if(store.state.authentication.idToken) {
+          next()
+        } else {
+          next('/register')
+        }
+    },
+  },
+  {
+    path: '/About',
+    name: 'About',
+    component: () =>
+      import(/* webpackChunkName: "About" */ "./views/About/About.vue"),
+      beforeEnter(to, from, next) {
+        if(store.state.authentication.idToken) {
+          next()
+        } else {
+          next('/register')
+        }
+    },
+  },
+  {
+    path: '/Premium',
+    name: 'Premium',
+    component: () =>
+      import(/* webpackChunkName: "Premium" */ "./views/Premium/Premium.vue"),
+      beforeEnter(to, from, next) {
+        if(store.state.authentication.idToken) {
+          next()
+        } else {
+          next('/register')
+        }
+    },
+  },
+  {
+    path: '*',
+    component: Home,
   }
 ]
 
