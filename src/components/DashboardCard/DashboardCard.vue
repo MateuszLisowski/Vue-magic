@@ -8,7 +8,7 @@
           <div class='card-block'>
             <h4 class='card-title'>{{card.title}}</h4>
             <p class='card-text'>{{card.text}}</p>
-            <router-link :to="actualRoute + card.link">
+            <router-link :to="card.link">
               <a class='btn btn-primary' href='#'>
                 +
               </a>
@@ -29,10 +29,6 @@ import {
 @Component
 export default class DashboardCard extends Vue {
   @Prop() public cardRowData: {}[];
-
-  get actualRoute() {
-    return this.$route.path
-  }
 }
 </script>
 

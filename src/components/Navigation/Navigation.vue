@@ -9,6 +9,9 @@
       <router-link to="/about" v-if="isAuthenticated">About</router-link>
       <router-link to="/premium" v-if="isAuthenticated">Premium</router-link>
       <a class="logout" v-if="isAuthenticated" @click="logout">Logout</a>
+      <span class="accountFunds" v-if="isAuthenticated">
+        funds: {{userFunds}} $
+      </span>
     </div>
 </template>
 
@@ -19,6 +22,7 @@ import { Getter } from 'vuex-class';
 @Component
 export default class Navigation extends Vue {
   @Getter public isAuthenticated: boolean;
+  @Getter public userFunds: number;
 
   logout() {
     this.$store.dispatch('logout')
@@ -30,7 +34,7 @@ export default class Navigation extends Vue {
 <style lang="scss">
   #nav {
     padding: 30px;
-    font-size: 2em;
+    font-size: 1.6em;
     a {
       font-weight: bold;
       color: white;
@@ -42,6 +46,12 @@ export default class Navigation extends Vue {
     }
     .logout:hover {
       text-decoration: underline;
+    }
+    .accountFunds {
+      position: absolute;
+      top: 2%;
+      right: 2%;
+      font-size: 1.1em;
     }
   }
 </style>
