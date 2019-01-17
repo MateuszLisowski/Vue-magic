@@ -84,6 +84,24 @@ export const actions = {
     commit('clearUserData')
     commit('clearAuthData')
     router.replace('/')
+  },
+  updateUser ({commit, state}, updatedUserData) {
+    globalAxios.patch('/users/' + state.user.id + '.json' + '?auth=' + state.idToken, updatedUserData)
+      .then(res => {
+        commit('showSuccessAlert')
+        setTimeout(() => {
+          commit('hideSuccessAlert')
+        }, 2000)
+      })
+      .catch(error => console.log(error))
+    commit('saveUserData', updatedUserData)
+  },
+  updatePremium ({commit, state, dispatch}, updatedPremium) {
+    const updatedUser = state.user
+    console.log(updatedPremium)
+    updatedUser.isPremium = !updatedPremium
+    console.log(updatedUser.isPremium)
+    dispatch("updateUser", updatedUser)
   }
 }
 

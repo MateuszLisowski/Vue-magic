@@ -23,33 +23,43 @@
                     <input type="text" class="form-control" name="lastname" placeholder="Lastname" data-form-field="Lastname" v-model.trim="lastname">
                   </div>
                   <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input type="text" class="form-control" name="username"  placeholder="Username" data-form-field="Username" v-model.trim="username">
-                  </div>
-                  <div class="form-group">
-                    <label for="password">New password:</label>
-                    <input type="password" class="form-control" name="password"  placeholder="New password" data-form-field="Password" v-model.trim="password">
-                  </div>
-                  <div class="form-group">
                     <label for="charge account">Charge Account:</label>
                     <input type="number" class="form-control" name="charge account"  placeholder="Charge account" data-form-field="Charge account" v-model.trim="chargeAccount">
                   </div>
-                  <div>
-                    <button type="submit" class="btn btn-lg btn-danger" @click.prevent="updateProfile(user)">Save and Update</button>
+                  <div class="buttonsWrapper">
+                    <button class="btn btn-lg btn-danger" @click.prevent="updateProfile(user)">
+                      Save and Update
+                    </button>
+                    <button @click.prevent="showData" class='btn btn-lg btn-light'>
+                      Account informations
+                    </button>
                   </div>
                 </form>
-                <div class="actualData">
-                  actual data
-                  <p>
-                    Firstname is: {{user.firstname}}
-                  </p>
-                  <p>
-                    Lastname is: {{user.lastname}}
-                  </p>
-                  <p>
-                    Your funds are equal: {{user.funds}}
-                  </p>
-                </div>
+                <transition name="slide">
+                  <ul class="actualData" v-if='showProfileData'>
+                    <li>
+                      Account informations:
+                    </li>
+                    <li>
+                      Firstname: {{user.firstname}}
+                    </li>
+                    <li>
+                      Lastname: {{user.lastname}}
+                    </li>
+                    <li>
+                      Available funds: {{user.funds}}
+                    </li>
+                    <li v-if="user.isPremium">
+                      Account type: Premium!
+                    </li>
+                    <li v-else>
+                      Account type: Free
+                    </li>
+                    <button @click.prevent="showData" class='btn btn-lg btn-primary'>
+                      Update account
+                    </button>
+                  </ul>
+                </transition>
               </div>
             </div>
           </div>
@@ -70,26 +80,24 @@ import { Getter } from 'vuex-class';
 export default class Account extends Vue {
   public firstname: string = '';
   public lastname: string = '';
-  public username: string = '';
-  public password: string = '';
   public chargeAccount: number = 0;
+  public showProfileData: boolean = false;
 
   @Getter public isSuccess: boolean;
   @Getter public user: object;
+
+  showData() {
+    this.showProfileData = !this.showProfileData
+  }
 
   updateProfile(user) {
       const updatedData = {
         firstname: this.firstname || user.firstname,
         lastname: this.lastname || user.lastname,
-        username: this.username || user.username,
-        password: this.password || user.password,
-        funds: this.chargeAccount || user.funds
+        funds: Number(this.chargeAccount) + Number(user.funds),
+        id: user.id
       }
-      console.log(updatedData)
-      this.$store.commit('showSuccessAlert')
-      setTimeout(() => {
-        this.$store.commit('hideSuccessAlert')
-      }, 2000);
+      this.$store.dispatch("updateUser", updatedData)
     }
   }
 }
@@ -110,13 +118,44 @@ export default class Account extends Vue {
       width: 100%;
       height: 100%;
       top: 0;
-      background-color: orange;
-      z-index: -1;
+      background-color: #0e2a2f;
+      z-index: 1;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      list-style-type: none;
+      padding: 0;
+      li {
+        font-size: 2em;
+        margin: 5px 0;
+        &:first-of-type {
+          font-size: 2.5em;
+          border-bottom: 1px solid white;
+        }
+      }
     }
-    // &:hover .actualData {
-    //   z-index: 1;
-    // }
   }
+
+.btn-danger {
+  margin-right: 10px;
+}
+
+.buttonsWrapper {
+  padding: 20px 0;
+}
+
+.slide-leave-active,
+.slide-enter-active {
+  transition: 1s;
+}
+.slide-enter {
+  transform: translate(200%, 0);
+}
+.slide-leave-to {
+  transform: translate(-200%, 0);
+}
 
   h2 {
     padding: 20px 0;

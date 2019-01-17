@@ -1,5 +1,8 @@
 <template>
   <div id="Premium">
+    <div class="alert alert-success" role="alert" v-if="isSuccess">
+      <strong>Well done!</strong> You are actually a {{isPremium ? "Premium user" : "Free User"}}.
+    </div>
     <div class="col-xs-12 col-md-5 col-lg-4">
       <article class="comparison premium">
         <div class="pricing">
@@ -13,16 +16,16 @@
             <li>Rare advertisements</li>
             <li>High quality support</li>
         </ul>
-        <a href="/purchase/offer/30day-intro-offer" class="btn btn-green btn-block js-button-module-get-premium">
+        <button @click="switchToFree(isPremium)" class="btn btn-green btn-block js-button-module-get-premium">
           Start free trial
-        </a>
+        </button>
       </article>
     </div>
     <div class="col-xs-12 col-md-5 col-lg-4">
       <article class="comparison premium">
         <div class="pricing">
             <h3>Premium</h3>
-            <h4>39,99&nbsp;$ <span class="month">/ month</span></h4>
+            <h4>40,00&nbsp;$ <span class="month">/ month</span></h4>
         </div>
         <ul class="list-features">
             <li>Unlimited space</li>
@@ -31,9 +34,9 @@
             <li>Unlimited downloads</li>
             <li>Unlimited access</li>
         </ul>
-        <a href="/purchase/offer/30day-intro-offer" class="btn btn-green btn-block js-button-module-get-premium">
+        <button @click="buyPremium(isPremium)" class="btn btn-green btn-block js-button-module-get-premium">
           Buy premium
-        </a>
+        </button>
       </article>
     </div>
   </div>
@@ -44,9 +47,29 @@ import {
   Component,
   Vue
 } from "vue-property-decorator";
+import { Getter } from 'vuex-class';
 
 @Component
 export default class Premium extends Vue {
+
+  @Getter public isPremium: boolean;
+  @Getter public isSuccess: boolean;
+
+  buyPremium(isPremium) {
+    if(isPremium) {
+      console.log("You are already premium user")
+      return;
+    }
+    this.$store.dispatch("updatePremium", isPremium)
+  }
+
+  switchToFree(isPremium) {
+    if(!isPremium) {
+      console.log("You are already free user")
+      return;
+    }
+    this.$store.dispatch("updatePremium", isPremium)
+  }
 }
 </script>
 
@@ -94,7 +117,7 @@ export default class Premium extends Vue {
         }
       }
     }
-    a {
+    button {
       color: #1DB954;
       box-shadow: 0 0 0 2px #1DB954 inset;
       background-color: transparent;

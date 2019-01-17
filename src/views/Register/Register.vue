@@ -80,6 +80,7 @@ export default class Register extends Vue {
       username: this.username,
       password: this.password,
       funds: 0,
+      isPremium: false,
     }
     this.$store.dispatch('register', data);
   }
