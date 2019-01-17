@@ -10,7 +10,7 @@ const store = {
   modules: {
     authentication,
     notifications,
-    // user
+    user
   },
 };
 

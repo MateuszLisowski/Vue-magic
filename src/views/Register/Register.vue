@@ -1,13 +1,13 @@
 <template>
   <div class="signup-form">
-    <transition name="alerts">
-      <div class="alert alert-success" role="alert" v-if="isSuccess">
+    <transition-group name="alerts">
+      <div class="alert alert-success" role="alert" v-if="isSuccess" key="success">
         <strong>Well done!</strong> You were registered successfully.
       </div>
-      <div class="alert alert-danger" role="alert" v-if="isError">
+      <div class="alert alert-danger" role="alert" v-if="isError" key="error">
         <strong>Oh snap!</strong> Change a few things up and try submitting again.
       </div>
-    </transition>
+    </transition-group>
     <form>
       <h2>Register</h2>
       <p class="hint-text">Create your account. It's free and only takes a minute.</p>
