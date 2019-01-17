@@ -91,14 +91,13 @@ export default class Account extends Vue {
   }
 
   updateProfile(user) {
-      const updatedData = {
-        firstname: this.firstname || user.firstname,
-        lastname: this.lastname || user.lastname,
-        funds: Number(this.chargeAccount) + Number(user.funds),
-        id: user.id
-      }
-      this.$store.dispatch("updateUser", updatedData)
+    const updatedData = {
+      firstname: this.firstname || user.firstname,
+      lastname: this.lastname || user.lastname,
+      funds: Number(this.chargeAccount) + Number(user.funds),
+      id: user.id
     }
+    this.$store.dispatch("updateUser", updatedData)
   }
 }
 </script>

@@ -1,6 +1,6 @@
 import axios from '@/axios-auth';
-import globalAxios from 'axios';
 import router from '@/router'
+import globalAxios from 'axios';
 
 export const actions = {
   register ({commit, dispatch}, registerData) {
@@ -37,6 +37,7 @@ export const actions = {
         token: res.data.idToken,
         userId: res.data.localId
       })
+      commit('logUser')
       dispatch('saveUser', {
         email: loginData.email,
         password: loginData.password,
@@ -48,6 +49,12 @@ export const actions = {
         commit('hideErrorAlert')
       }, 2000);
     })
+  },
+  logout ({commit}) {
+    commit('clearUserData')
+    commit('clearAuthData')
+    commit('logoutUser')
+    router.replace('/')
   },
   storeUser ({commit, state}, data) {
     if (!state.idToken) {
@@ -80,11 +87,6 @@ export const actions = {
       })
       .catch(error => console.log(error))
   },
-  logout ({commit}) {
-    commit('clearUserData')
-    commit('clearAuthData')
-    router.replace('/')
-  },
   updateUser ({commit, state}, updatedUserData) {
     globalAxios.patch('/users/' + state.user.id + '.json' + '?auth=' + state.idToken, updatedUserData)
       .then(res => {
@@ -98,9 +100,10 @@ export const actions = {
   },
   updatePremium ({commit, state, dispatch}, updatedPremium) {
     const updatedUser = state.user
-    console.log(updatedPremium)
     updatedUser.isPremium = !updatedPremium
-    console.log(updatedUser.isPremium)
+    if(updatedUser.isPremium) {
+      updatedUser.funds = Number(updatedUser.funds) - 40
+    }
     dispatch("updateUser", updatedUser)
   }
 }

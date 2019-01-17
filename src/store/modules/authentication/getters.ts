@@ -1,8 +1,6 @@
 export const getters = {
-  // isError: (state) => state.isError,
-  // isSuccess: (state) => state.isSuccess,
+  isAuthenticated: (state) => state.idToken !== null && state.isLogged,
   user: (state) => state.user,
-  isAuthenticated: (state) => state.idToken !== null,
   userFunds: (state) => state.user.funds,
   isPremium: (state) => state.user.isPremium
 }
