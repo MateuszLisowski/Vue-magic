@@ -1,34 +1,13 @@
-# vue-magic
-
 ## Project setup
-```
-yarn install
-```
+1. yarn install
+2. yarn serve
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+## Technology stack
+1. Vue
+2. Vue-router
+3. Vuex
+4. Typescript
+5. Scss
+6. Bootstrap
+7. Axios
 
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Run your unit tests
-```
-yarn run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
