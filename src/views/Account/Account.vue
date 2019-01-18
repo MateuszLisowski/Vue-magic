@@ -72,6 +72,7 @@ import {
   Vue
 } from "vue-property-decorator";
 import { Getter } from 'vuex-class';
+import { updatedAccountData, userData } from '@/types';
 
 @Component
 export default class Account extends Vue {
@@ -83,12 +84,12 @@ export default class Account extends Vue {
   @Getter public isSuccess: boolean;
   @Getter public user: object;
 
-  showData() {
+  showData(): void {
     this.showProfileData = !this.showProfileData
   }
 
-  updateProfile(user) {
-    const updatedData = {
+  updateProfile(user: userData): void {
+    const updatedData: updatedAccountData = {
       firstname: this.firstname || user.firstname,
       lastname: this.lastname || user.lastname,
       funds: Number(this.chargeAccount) + Number(user.funds),

@@ -22,7 +22,7 @@ import {
 
 @Component
 export default class Gallery extends Vue {
-  public images = [
+  public images: string[] = [
     this.randomImage(),
     this.randomImage(),
     this.randomImage(),
@@ -32,7 +32,7 @@ export default class Gallery extends Vue {
   ]
 
   public loadMoreImages() {
-    const newImages = [
+    const newImages: string[] = [
       this.randomImage(),
       this.randomImage(),
       this.randomImage(),
@@ -43,7 +43,7 @@ export default class Gallery extends Vue {
     this.images.push(...newImages)
   }
 
-  public randomImage() {
+  public randomImage(): string {
     const base = 'https://source.unsplash.com/random/'
     const width = '400x'
     const height = Math.floor(Math.random() * 301) + 300

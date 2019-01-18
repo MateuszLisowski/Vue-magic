@@ -24,7 +24,7 @@ export default class Navigation extends Vue {
   @Getter public isAuthenticated: boolean;
   @Getter public userFunds: number;
 
-  logout() {
+  logout(): void {
     this.$store.dispatch('logout')
   }
 }

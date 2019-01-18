@@ -45,13 +45,14 @@ import {
   Vue
 } from "vue-property-decorator";
 import { Getter } from 'vuex-class';
+import { premium } from '@/types'
 
 @Component
 export default class Premium extends Vue {
   @Getter public isPremium: boolean;
   @Getter public isSuccess: boolean;
 
-  buyPremium(isPremium) {
+  buyPremium(isPremium: premium) {
     if(isPremium) {
       this.$store.commit('showErrorAlert', 'You are already Premium user!')
       setTimeout(() => {
@@ -62,7 +63,7 @@ export default class Premium extends Vue {
     this.$store.dispatch("updatePremium", isPremium)
   }
 
-  switchToFree(isPremium) {
+  switchToFree(isPremium: premium) {
     if(!isPremium) {
       this.$store.commit('showErrorAlert', 'You are already free user!')
       setTimeout(() => {

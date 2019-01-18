@@ -24,7 +24,6 @@ export default class notifications extends Vue {
 }
 </script>
 
-
 <style lang="scss">
 .alerts-enter-active, .alerts-leave-active {
   transition: opacity .5s;

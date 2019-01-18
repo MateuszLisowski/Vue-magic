@@ -44,7 +44,7 @@ import {
   Component,
   Vue
 } from "vue-property-decorator";
-import { registerData } from '@/types'
+import { userData } from '@/types'
 import { Getter } from 'vuex-class';
 
 @Component
@@ -58,15 +58,16 @@ export default class Register extends Vue {
   @Getter public isError: boolean;
   @Getter public isSuccess: boolean;
 
-  register() {
-    if(!this.agreement || this.password !== this.confirmPassword || !this.password || !this.confirmPassword) {
+  register(): void {
+    const isIncorrectFilled: boolean = !this.agreement || this.password !== this.confirmPassword || !this.password || !this.confirmPassword
+    if(isIncorrectFilled) {
       this.$store.commit('showErrorAlert', "Password doesn't match or aggrement didn't checked")
       setTimeout(() => {
         this.$store.commit('hideErrorAlert')
       }, 2000);
       return;
     }
-    const data: registerData = {
+    const data: userData = {
       firstname: this.firstname,
       lastname: this.lastname,
       username: this.username,

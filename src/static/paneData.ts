@@ -1,4 +1,6 @@
-export const paneData = [
+import { panesData } from '@/types'
+
+export const paneData: panesData[] = [
   {
     className: 'hero-box__circle--blue',
     title: 'Publish',

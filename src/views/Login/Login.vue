@@ -33,6 +33,7 @@ import {
 } from "vue-property-decorator";
 import axios from '@/axios-auth';
 import { Getter } from 'vuex-class';
+import { loginData } from '@/types'
 
 @Component
 export default class Login extends Vue {
@@ -40,8 +41,8 @@ export default class Login extends Vue {
   public username: string = '';
   @Getter public isError: boolean;
 
-  login() {
-    const data = {
+  login(): void {
+    const data: loginData = {
       password: this.password,
       email: this.username + '@gmail.com',
     }
