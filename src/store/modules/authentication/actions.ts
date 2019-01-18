@@ -9,7 +9,7 @@ export const actions = {
       returnSecureToken: true,
     })
       .then(res => {
-        commit('showSuccessAlert')
+        commit('showSuccessAlert', 'You were registered successfully.')
         setTimeout(() => {
           commit('hideSuccessAlert')
         }, 2000);
@@ -20,7 +20,7 @@ export const actions = {
         dispatch('storeUser', registerData)
       })
       .catch(error => {
-        commit('showErrorAlert')
+        commit('showErrorAlert', 'Something went wrong on server. Try again!')
         setTimeout(() => {
           commit('hideErrorAlert')
         }, 2000);
@@ -42,8 +42,12 @@ export const actions = {
         password: loginData.password,
       })
       router.push('/dashboard')
+      commit('showSuccessAlert', 'You were logged successfully.')
+      setTimeout(() => {
+        commit('hideSuccessAlert')
+      }, 2000);
     }).catch(e => {
-      commit('showErrorAlert')
+      commit('showErrorAlert', 'Something went wrong during login. Try again!')
       setTimeout(() => {
         commit('hideErrorAlert')
       }, 2000);
@@ -54,6 +58,10 @@ export const actions = {
     commit('clearAuthData')
     commit('logoutUser')
     router.replace('/')
+    commit('showSuccessAlert', 'You were logged out successfully.')
+    setTimeout(() => {
+      commit('hideSuccessAlert')
+    }, 2000);
   },
 }
 

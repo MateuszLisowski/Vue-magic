@@ -1,8 +1,10 @@
 export const mutations = {
-  showSuccessAlert(state) {
+  showSuccessAlert(state, message) {
+    state.successMessage = message
     state.isSuccess = true
   },
-  showErrorAlert(state) {
+  showErrorAlert(state, message) {
+    state.errorMessage = message
     state.isError = true
   },
   hideSuccessAlert(state) {

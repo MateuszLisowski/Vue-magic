@@ -1,8 +1,5 @@
 <template>
   <div id="Premium">
-    <div class="alert alert-success" role="alert" v-if="isSuccess">
-      <strong>Well done!</strong> You are actually a {{isPremium ? "Premium user" : "Free User"}}.
-    </div>
     <div class="col-xs-12 col-md-5 col-lg-4">
       <article class="comparison premium">
         <div class="pricing">
@@ -51,13 +48,15 @@ import { Getter } from 'vuex-class';
 
 @Component
 export default class Premium extends Vue {
-
   @Getter public isPremium: boolean;
   @Getter public isSuccess: boolean;
 
   buyPremium(isPremium) {
     if(isPremium) {
-      console.log("You are already premium user")
+      this.$store.commit('showErrorAlert', 'You are already Premium user!')
+      setTimeout(() => {
+        this.$store.commit('hideErrorAlert')
+      }, 2000);
       return;
     }
     this.$store.dispatch("updatePremium", isPremium)
@@ -65,7 +64,10 @@ export default class Premium extends Vue {
 
   switchToFree(isPremium) {
     if(!isPremium) {
-      console.log("You are already free user")
+      this.$store.commit('showErrorAlert', 'You are already free user!')
+      setTimeout(() => {
+        this.$store.commit('hideErrorAlert')
+      }, 2000);
       return;
     }
     this.$store.dispatch("updatePremium", isPremium)

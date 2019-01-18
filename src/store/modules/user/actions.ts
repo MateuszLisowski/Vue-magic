@@ -35,7 +35,7 @@ export const actions = {
   updateUser ({commit, state, rootState}, updatedUserData) {
     globalAxios.patch('/users/' + state.user.id + '.json' + '?auth=' + rootState.authentication.idToken, updatedUserData)
       .then(res => {
-        commit('showSuccessAlert')
+        commit('showSuccessAlert', 'Your profile data were updated')
         setTimeout(() => {
           commit('hideSuccessAlert')
         }, 2000)
@@ -43,7 +43,7 @@ export const actions = {
       .catch(error => console.log(error))
     commit('saveUserData', updatedUserData)
   },
-  updatePremium ({commit, state, dispatch}, updatedPremium) {
+  updatePremium ({state, dispatch}, updatedPremium) {
     const updatedUser = state.user
     updatedUser.isPremium = !updatedPremium
     if(updatedUser.isPremium) {

@@ -1,8 +1,5 @@
 <template>
   <div id="Account">
-    <div class="alert alert-success" role="alert" v-if="isSuccess">
-      <strong>Well done!</strong> You were registered successfully.
-    </div>
     <section>
       <div>
         <div class="row">

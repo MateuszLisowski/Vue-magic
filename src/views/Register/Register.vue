@@ -1,13 +1,5 @@
 <template>
   <div class="signup-form">
-    <transition-group name="alerts">
-      <div class="alert alert-success" role="alert" v-if="isSuccess" key="success">
-        <strong>Well done!</strong> You were registered successfully.
-      </div>
-      <div class="alert alert-danger" role="alert" v-if="isError" key="error">
-        <strong>Oh snap!</strong> Change a few things up and try submitting again.
-      </div>
-    </transition-group>
     <form>
       <h2>Register</h2>
       <p class="hint-text">Create your account. It's free and only takes a minute.</p>
@@ -67,8 +59,8 @@ export default class Register extends Vue {
   @Getter public isSuccess: boolean;
 
   register() {
-    if(!this.agreement || this.password !== this.confirmPassword) {
-      this.$store.commit('showErrorAlert')
+    if(!this.agreement || this.password !== this.confirmPassword || !this.password || !this.confirmPassword) {
+      this.$store.commit('showErrorAlert', "Password doesn't match or aggrement didn't checked")
       setTimeout(() => {
         this.$store.commit('hideErrorAlert')
       }, 2000);
@@ -88,20 +80,6 @@ export default class Register extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.alerts-enter-active, .alerts-leave-active {
-  transition: opacity .5s;
-}
-.alerts-enter, .alerts-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
-
-.alert-success,
-.alert-danger {
-  top: 60px;
-  width: 400px;
-  position: fixed;
-}
-
 .form-control {
   height: 40px;
   box-shadow: none;

@@ -1,10 +1,5 @@
 <template>
 <div id="LoginForm">
-  <transition name="alerts">
-    <div class="alert alert-danger" role="alert" v-if="isError">
-      <strong>Oh snap!</strong> Incorrect username or password. Please try again!
-    </div>
-  </transition>
   <div class="container">
     <div class="login-form">
       <div class="main-div">
@@ -25,7 +20,7 @@
           <button type="submit" class="btn btn-success" @click.prevent="login">Login</button>
         </form>
       </div>
-      <p class="botto-text"> Designed by Mateusz Lisowski</p>
+      <p class="bottom-text"> Designed by Mateusz Lisowski</p>
     </div>
   </div>
 </div>
@@ -56,13 +51,7 @@ export default class Login extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.alert-danger {
-  top: 60px;
-  width: 400px;
-  position: fixed;
-  left: 50%;
-  margin-left: -200px;
-}
+
 
 .form-heading {
   color: #fff;
@@ -128,7 +117,7 @@ export default class Login extends Vue {
   margin-bottom: 30px;
 }
 
-.botto-text {
+.bottom-text {
   color: #ffffff;
   font-size: 14px;
   margin: auto;
