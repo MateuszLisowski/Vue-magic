@@ -37,3 +37,37 @@ export interface updatedAccountData {
   funds: number,
   id: string,
 }
+
+export interface rootState {
+  notifications: notificationsTypes,
+  authentication: authenticationTypes,
+  user: userTypes,
+}
+
+export interface notificationsTypes {
+  errorMessage: string,
+  isError: boolean,
+  isSuccess: boolean,
+  successMessage: string,
+}
+
+export interface authenticationTypes {
+  idToken: string,
+  isLogged: boolean,
+  userId: string,
+}
+
+export interface userTypes {
+  user: userData | {},
+}
+
+export interface userGetters extends userTypes {
+  userFunds: number,
+  isPremium: boolean,
+}
+
+export interface authenticationGetters {
+  isAuthenticated: boolean,
+  idToken: string,
+  isLogged: boolean,
+}
