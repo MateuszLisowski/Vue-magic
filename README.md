@@ -15,4 +15,5 @@
 1. Improve responsiveness
 2. Refactor HTML and CSS code
 3. Refactor JS to avoid repetitions
+4. Store notification messages in separate file
 

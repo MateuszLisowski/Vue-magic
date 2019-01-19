@@ -5,6 +5,14 @@ import store from '@/store/store';
 
 Vue.use(Router);
 
+const urlProtector = (next: any) => {
+  if(store.state.authentication.idToken) {
+    next()
+  } else {
+    next('/register')
+  }
+}
+
 const routes: { path: string, name: string, component: any }[] = [
   {
     path: "/",
@@ -28,12 +36,8 @@ const routes: { path: string, name: string, component: any }[] = [
     name: "Dashboard",
     component: () =>
       import(/* webpackChunkName: "Dashboard" */ "./views/Dashboard/Dashboard.vue"),
-      beforeEnter(to, from, next) {
-        if(store.state.authentication.idToken) {
-          next()
-        } else {
-          next('/register')
-        }
+      beforeEnter(to: any, from: any, next: any) {
+        urlProtector(next)
     },
   },
   {
@@ -41,12 +45,8 @@ const routes: { path: string, name: string, component: any }[] = [
     name: 'Gallery',
     component: () =>
       import(/* webpackChunkName: "Gallery" */ "./views/Gallery/Gallery.vue"),
-      beforeEnter(to, from, next) {
-        if(store.state.authentication.idToken) {
-          next()
-        } else {
-          next('/register')
-        }
+      beforeEnter(to: any, from: any, next: any) {
+        urlProtector(next)
     },
   },
   {
@@ -54,12 +54,8 @@ const routes: { path: string, name: string, component: any }[] = [
     name: 'Account',
     component: () =>
       import(/* webpackChunkName: "Account" */ "./views/Account/Account.vue"),
-      beforeEnter(to, from, next) {
-        if(store.state.authentication.idToken) {
-          next()
-        } else {
-          next('/register')
-        }
+      beforeEnter(to: any, from: any, next: any) {
+        urlProtector(next)
     },
   },
   {
@@ -67,12 +63,8 @@ const routes: { path: string, name: string, component: any }[] = [
     name: 'About',
     component: () =>
       import(/* webpackChunkName: "About" */ "./views/About/About.vue"),
-      beforeEnter(to, from, next) {
-        if(store.state.authentication.idToken) {
-          next()
-        } else {
-          next('/register')
-        }
+      beforeEnter(to: any, from: any, next: any) {
+        urlProtector(next)
     },
   },
   {
@@ -80,12 +72,8 @@ const routes: { path: string, name: string, component: any }[] = [
     name: 'Premium',
     component: () =>
       import(/* webpackChunkName: "Premium" */ "./views/Premium/Premium.vue"),
-      beforeEnter(to, from, next) {
-        if(store.state.authentication.idToken) {
-          next()
-        } else {
-          next('/register')
-        }
+      beforeEnter(to: any, from: any, next: any) {
+        urlProtector(next)
     },
   },
   {
@@ -99,3 +87,4 @@ export default new Router({
   base: process.env.BASE_URL,
   routes
 });
+
