@@ -1,8 +1,12 @@
 <template>
   <div class="signup-form">
     <form>
-      <h2>Register</h2>
-      <p class="hint-text">Create your account. It's free and only takes a minute.</p>
+      <h2>
+        Register
+      </h2>
+      <p class="hint-text">
+        Create your account. It's free and only takes a minute.
+      </p>
         <div class="form-group">
           <div class="row">
             <div class="col-xs-5">
@@ -24,7 +28,8 @@
         </div>
         <div class="form-group">
           <label class="checkbox-inline">
-            <input type="checkbox" required="required" v-model="agreement"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a>
+            <input type="checkbox" required="required" v-model="agreement">
+            I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a>
           </label>
         </div>
         <div class="form-group">

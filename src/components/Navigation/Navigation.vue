@@ -1,14 +1,32 @@
 <template>
     <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/login" v-if="!isAuthenticated">Log in</router-link>
-      <router-link to="/register" v-if="!isAuthenticated">Register</router-link>
-      <router-link to="/dashboard" v-if="isAuthenticated">Dashboard</router-link>
-      <router-link to="/gallery" v-if="isAuthenticated">Gallery</router-link>
-      <router-link to="/myaccount" v-if="isAuthenticated">My account</router-link>
-      <router-link to="/about" v-if="isAuthenticated">About</router-link>
-      <router-link to="/premium" v-if="isAuthenticated">Premium</router-link>
-      <a class="logout" v-if="isAuthenticated" @click="logout">Logout</a>
+      <router-link to="/">
+        Home
+      </router-link>
+      <router-link to="/login" v-if="!isAuthenticated">
+        Log in
+      </router-link>
+      <router-link to="/register" v-if="!isAuthenticated">
+        Register
+      </router-link>
+      <router-link to="/dashboard" v-if="isAuthenticated">
+        Dashboard
+      </router-link>
+      <router-link to="/gallery" v-if="isAuthenticated">
+        Gallery
+      </router-link>
+      <router-link to="/myaccount" v-if="isAuthenticated">
+        My account
+      </router-link>
+      <router-link to="/about" v-if="isAuthenticated">
+        About
+      </router-link>
+      <router-link to="/premium" v-if="isAuthenticated">
+        Premium
+      </router-link>
+      <a class="logout" v-if="isAuthenticated" @click="logout">
+        Logout
+      </a>
       <span class="accountFunds" v-if="isAuthenticated">
         funds: {{userFunds}} $
       </span>

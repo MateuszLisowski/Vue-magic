@@ -7,20 +7,28 @@
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2 wrapper">
                 <div>
-                  <h2>My account</h2>
+                  <h2>
+                    My account
+                  </h2>
                 </div>
                 <form method="post" data-form-title="MY ACCOUNT">
                   <input type="hidden" data-form-email="true">
                   <div class="form-group">
-                    <label for="firstname">Firstname:</label>
+                    <label for="firstname">
+                      Firstname:
+                    </label>
                     <input type="text" class="form-control" name="firstname" placeholder="Firstname" data-form-field="Firstname" v-model.trim="firstname">
                   </div>
                   <div class="form-group">
-                    <label for="lastname">Lastname:</label>
+                    <label for="lastname">
+                      Lastname:
+                    </label>
                     <input type="text" class="form-control" name="lastname" placeholder="Lastname" data-form-field="Lastname" v-model.trim="lastname">
                   </div>
                   <div class="form-group">
-                    <label for="charge account">Charge Account:</label>
+                    <label for="charge account">
+                      Charge Account:
+                    </label>
                     <input type="number" class="form-control" name="charge account"  placeholder="Charge account" data-form-field="Charge account" v-model.trim="chargeAccount">
                   </div>
                   <div class="buttonsWrapper">

@@ -4,18 +4,28 @@
       <div class="cover bg-left bg-center-l" style="background-image: url(https://images.unsplash.com/photo-1527153818091-1a9638521e2a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5fce4ce8856a711cc50a14e03e58783a&auto=format&fit=crop&w=1158&q=80)">
         <div class="bg-black-80 pb5 pb6-m pb7-l">
           <div class="tc-l mt4 mt5-m mt6-l ph3">
-            <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">This is a super awesome headline for your company!</h1>
-            <h2 class="fw1 f3 white-80 mt3 mb4">Now another subheadline where you explain something else awesome about your company!</h2>
-            <a class="f6 no-underline grow dib v-mid bg-blue white ba b--blue ph3 pv2 mb3" href="/">Awesome Action</a>
-            <span class="dib v-mid ph3 white-70 mb3">or</span>
-            <a class="f6 no-underline grow dib v-mid white ba b--white ph3 pv2 mb3" href="">Another Awesome Action</a>
+            <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">
+                This is a super awesome headline for your company!
+            </h1>
+            <h2 class="fw1 f3 white-80 mt3 mb4">
+                Now another subheadline where you explain something else awesome about your company!
+            </h2>
+            <a class="f6 no-underline grow dib v-mid bg-blue white ba b--blue ph3 pv2 mb3" href="/">
+                Awesome Action
+            </a>
+            <span class="dib v-mid ph3 white-70 mb3">
+                or
+            </span>
+            <a class="f6 no-underline grow dib v-mid white ba b--white ph3 pv2 mb3" href="">
+                Another Awesome Action
+            </a>
           </div>
         </div>
-      </div> 
+      </div>
     </header>
     <section class='hero'>
       <div class='hero-box-container'>
-         <Pane v-for="pane in paneData" :key="pane.title" :data="pane"/>
+        <Pane v-for="pane in paneData" :key="pane.title" :data="pane"/>
       </div>
     </section>
   </div>

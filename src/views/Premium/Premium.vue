@@ -3,15 +3,29 @@
     <div class="col-xs-12 col-md-5 col-lg-4">
       <article class="comparison premium">
         <div class="pricing">
-            <h3>Free trial</h3>
-            <h4>0,00&nbsp;$ <span class="month">/ month</span></h4>
-            <p class="small">30 days for free*</p>
+          <h3>
+            Free trial
+          </h3>
+          <h4>
+            0,00&nbsp;$ <span class="month">/ month</span>
+          </h4>
+          <p class="small">
+            30 days for free*
+          </p>
         </div>
         <ul class="list-features">
-            <li>Limited access</li>
-            <li>Offline upload</li>
-            <li>Rare advertisements</li>
-            <li>High quality support</li>
+          <li>
+            Limited access
+          </li>
+          <li>
+            Offline upload
+          </li>
+          <li>
+            Rare advertisements
+          </li>
+          <li>
+            High quality support
+          </li>
         </ul>
         <button @click="switchToFree(isPremium)" class="btn btn-green btn-block js-button-module-get-premium">
           Start free trial
@@ -21,15 +35,29 @@
     <div class="col-xs-12 col-md-5 col-lg-4">
       <article class="comparison premium">
         <div class="pricing">
-            <h3>Premium</h3>
-            <h4>40,00&nbsp;$ <span class="month">/ month</span></h4>
+          <h3>
+            Premium
+          </h3>
+          <h4>
+            40,00&nbsp;$ <span class="month">/ month</span>
+          </h4>
         </div>
         <ul class="list-features">
-            <li>Unlimited space</li>
-            <li>Support 24/7</li>
-            <li>No ads</li>
-            <li>Unlimited downloads</li>
-            <li>Unlimited access</li>
+          <li>
+            Unlimited space
+          </li>
+          <li>
+            Support 24/7
+          </li>
+          <li>
+            No ads
+          </li>
+          <li>
+            Unlimited downloads
+          </li>
+          <li>
+            Unlimited access
+          </li>
         </ul>
         <button @click="buyPremium(isPremium)" class="btn btn-green btn-block js-button-module-get-premium">
           Buy premium

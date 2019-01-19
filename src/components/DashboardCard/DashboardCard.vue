@@ -6,8 +6,12 @@
             <img alt='' class='img-fluid' :src="card.img">
           </div>
           <div class='card-block'>
-            <h4 class='card-title'>{{card.title}}</h4>
-            <p class='card-text'>{{card.text}}</p>
+            <h4 class='card-title'>
+              {{card.title}}
+            </h4>
+            <p class='card-text'>
+              {{card.text}}
+            </p>
             <router-link :to="card.link">
               <a class='btn btn-primary' href='#'>
                 +
@@ -44,21 +48,21 @@ export default class DashboardCard extends Vue {
   position: relative;
   border: none;
   box-shadow: 0 1.5rem 3rem rgba(0,0,0,.5);
-  
+
   .img-fluid {
     width: 100%;
   }
-  
+
   .card-block {
     position: relative;
     padding: 2rem;
     color: black;
   }
-  
+
   .card-text {
     margin-bottom: 0;
   }
-  
+
   .btn {
     position: absolute;
     display: flex;
@@ -72,7 +76,7 @@ export default class DashboardCard extends Vue {
     width: 3rem;
     height: 3rem;
     transition: all .25s ease-in-out;
-    
+
     .icon {
       width: 50%;
       height: 50%;

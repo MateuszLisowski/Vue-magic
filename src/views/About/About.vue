@@ -3,8 +3,15 @@
     <h4>
       About Us
     </h4>
-    <span class="subhead">OUR STORY</span>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mattis odio nulla, rhoncus feugiat erat luctus ornare. Fusce ex nibh, placerat ut diam sit amet, finibus porttitor lacus. Aliquam hendrerit massa eget tincidunt iaculis. Nulla facilisi. Nullam accumsan velit justo, id rutrum risus mollis vel. Sed id efficitur lacus. Curabitur hendrerit dolor non? <br><br>Quisque porta porttitor ante, vitae bibendum risus rhoncus ornare. Suspendisse enim dolor, ornare sed dictum sed, rhoncus vel ante. Aliquam ornare quam eget elit finibus euismod. Maecenas rutrum urna erat, vel sollicitudin purus pulvinar maximus. Nam..</p>
+    <span class="subhead">
+      OUR STORY
+    </span>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mattis odio nulla, rhoncus feugiat erat luctus ornare. Fusce ex nibh, placerat ut diam sit amet, finibus porttitor lacus. Aliquam hendrerit massa eget tincidunt iaculis. Nulla facilisi. Nullam accumsan velit justo, id rutrum risus mollis vel. Sed id efficitur lacus. Curabitur hendrerit dolor non?
+      <br>
+      <br>
+      Quisque porta porttitor ante, vitae bibendum risus rhoncus ornare. Suspendisse enim dolor, ornare sed dictum sed, rhoncus vel ante. Aliquam ornare quam eget elit finibus euismod. Maecenas rutrum urna erat, vel sollicitudin purus pulvinar maximus. Nam..
+    </p>
   </div>
 </template>
 

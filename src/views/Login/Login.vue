@@ -4,8 +4,12 @@
     <div class="login-form">
       <div class="main-div">
         <div class="panel">
-          <h1>Login form</h1>
-          <p>Please enter your username and password</p>
+          <h1>
+            Login form
+          </h1>
+          <p>
+            Please enter your username and password
+          </p>
         </div>
         <form id="Login">
           <div class="form-group">
@@ -15,12 +19,18 @@
             <input type="password" class="form-control" id="inputPassword" placeholder="Password" v-model.trim="password">
           </div>
           <div class="forgot">
-            <a href="reset.html">Forgot password?</a>
+            <a href="reset.html">
+              Forgot password?
+            </a>
           </div>
-          <button type="submit" class="btn btn-success" @click.prevent="login">Login</button>
+          <button type="submit" class="btn btn-success" @click.prevent="login">
+            Login
+          </button>
         </form>
       </div>
-      <p class="bottom-text"> Designed by Mateusz Lisowski</p>
+      <p class="bottom-text">
+        Designed by Mateusz Lisowski
+      </p>
     </div>
   </div>
 </div>
@@ -52,8 +62,6 @@ export default class Login extends Vue {
 </script>
 
 <style lang="scss" scoped>
-
-
 .form-heading {
   color: #fff;
   font-size: 23px;
