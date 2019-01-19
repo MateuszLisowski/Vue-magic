@@ -1,9 +1,12 @@
-export const mutations = {
-  showSuccessAlert(state, message) {
+import { MutationTree } from 'vuex';
+import { notificationsTypes } from '@/types';
+
+export const mutations: MutationTree<notificationsTypes> = {
+  showSuccessAlert(state, message: string) {
     state.successMessage = message
     state.isSuccess = true
   },
-  showErrorAlert(state, message) {
+  showErrorAlert(state, message: string) {
     state.errorMessage = message
     state.isError = true
   },

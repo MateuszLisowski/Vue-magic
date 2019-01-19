@@ -1,4 +1,7 @@
-export const mutations = {
+import { MutationTree } from 'vuex';
+import { authenticationTypes } from '@/types';
+
+export const mutations: MutationTree<authenticationTypes> = {
   authUser (state, userData) {
     state.idToken = userData.token
     state.userId = userData.userId

@@ -1,8 +1,10 @@
 import axios from '@/axios-auth';
 import router from '@/router'
+import { ActionTree } from 'vuex';
+import { rootState, authenticationTypes, userData, loginData} from '@/types';
 
-export const actions = {
-  register ({commit, dispatch}, registerData) {
+export const actions: ActionTree<authenticationTypes,rootState> = {
+  register ({commit, dispatch}, registerData: userData) {
     axios.post('/signupNewUser?key=AIzaSyAXWxvk3bZ94NVvVjjGpOBoKrxPJ_5_f5o', {
       email: registerData.username + '@gmail.com',
       password: registerData.password,
@@ -26,7 +28,7 @@ export const actions = {
         }, 2000);
       })
   },
-  login ({commit, dispatch}, loginData) {
+  login ({commit, dispatch}, loginData: loginData) {
     axios.post('/verifyPassword?key=AIzaSyAXWxvk3bZ94NVvVjjGpOBoKrxPJ_5_f5o', {
       email: loginData.email,
       password: loginData.password,

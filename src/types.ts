@@ -31,6 +31,10 @@ export interface cardsDataTypes {
   link: string,
 }
 
+export interface updatedAccountInformations {
+  updatedUserData: updatedAccountData | userData
+}
+
 export interface updatedAccountData {
   firstname: string,
   lastname: string,
@@ -52,9 +56,9 @@ export interface notificationsTypes {
 }
 
 export interface authenticationTypes {
-  idToken: string,
-  isLogged: boolean,
-  userId: string,
+  idToken: string | null,
+  isLogged: boolean | false,
+  userId: string | null,
 }
 
 export interface userTypes {
