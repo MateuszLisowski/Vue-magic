@@ -1,9 +1,15 @@
 <template>
-    <a href='' class='hero-box'>
-      <span class='hero-box__circle' :class="data.className"></span>
-      <h2 class='hero-box__title'>{{data.title}}</h2>
-      <p class='hero-box__body'>{{data.firstLine}} <br /> {{data.secondLine}}</p>
-    </a>
+  <a href='' class='hero-box'>
+    <span class='hero-box__circle' :class="data.className"></span>
+    <h2 class='hero-box__title'>
+      {{data.title}}
+    </h2>
+    <p class='hero-box__body'>
+      {{data.firstLine}}
+      <br />
+      {{data.secondLine}}
+    </p>
+  </a>
 </template>
 
 <script lang="ts">
@@ -33,6 +39,7 @@ export default class Pane extends Vue {
   overflow: hidden;
   border: 1px solid #464646;
 }
+
 .hero-box:hover {
   .hero-box__circle {
     width: 100%;
@@ -53,6 +60,7 @@ export default class Pane extends Vue {
       transition: 0.2s ease;
       transition-delay: 0.1s;
     }
+
     &:before {
       transition: 0.2s ease;
       transition-delay: 0.1s;
@@ -67,12 +75,14 @@ export default class Pane extends Vue {
     transition: 0.15s ease;
     transition-delay: 0.15s;
   }
+
   .hero-box__title {
     color: rgb(255, 255, 255);
     transition: 0.1s ease;
     transition-delay: 0.15s;
   }
 }
+
 .hero-box__title {
   font-weight: 600;
   position: relative;
@@ -112,6 +122,7 @@ export default class Pane extends Vue {
     border-radius: 100rem;
     transform: scale(0);
   }
+
   &:before {
     width: 25px;
     height: 25px;
@@ -129,9 +140,11 @@ export default class Pane extends Vue {
 .hero-box__circle--green {
   background-color: #00c569;
 }
+
 .hero-box__circle--blue {
   background-color: #0011c6;
 }
+
 .hero-box__circle--orange {
   background-color: #fd7d02;
 }
@@ -139,10 +152,10 @@ export default class Pane extends Vue {
 @media only screen and (max-width: 1000px) {
   .hero-box {
     flex-basis: 50%;
+
     &:last-of-type {
       flex-basis: 100%;
     }
   }
 }
-
 </style>
