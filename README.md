@@ -12,10 +12,11 @@
 5. Scss
 6. Bootstrap
 7. Axios
+8. Jest && maxios
 
 ## TODO
 
 1. Improve responsiveness
-2. Refactor HTML and CSS code
+2. Refactor HTML and CSS code (repetitions + rewrite to BEM)
 3. Refactor JS to avoid repetitions
 4. Store notification messages in separate file
