@@ -13,7 +13,7 @@ const urlProtector = (next: any) => {
   }
 };
 
-const routes: { path: string; name: string; component: any }[] = [
+const routes: any = [
   {
     path: "/",
     name: "Home",

@@ -26,8 +26,10 @@ export const actions: ActionTree<userTypes,rootState> = {
     }
     globalAxios.get('/users.json' + '?auth=' + idToken)
       .then(res => {
+        // @ts-ignore
         const users: userData[] = Object.entries(res.data)
           .map(user => {
+            // @ts-ignore
             user[1].id = user[0]
             return user[1]
           })
@@ -41,6 +43,7 @@ export const actions: ActionTree<userTypes,rootState> = {
   updateUser ({commit, state, rootState}, updatedUserData: updatedAccountInformations) {
     const idToken = rootState.authentication.idToken
 
+    // @ts-ignore
     globalAxios.patch('/users/' + state.user.id + '.json' + '?auth=' + idToken, updatedUserData)
       .then(res => {
         commit('showSuccessAlert', 'Your profile data were updated')

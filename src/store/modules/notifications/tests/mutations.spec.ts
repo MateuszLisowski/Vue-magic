@@ -11,7 +11,7 @@ const {
 describe("notifications mutations", () => {
   test("showSuccessAlert works correctly", () => {
     const state = notifications;
-    const newMessage = "New message"
+    const newMessage = "New message";
 
     showSuccessAlert(state, newMessage);
     expect(state.successMessage).toEqual(newMessage);
@@ -20,7 +20,7 @@ describe("notifications mutations", () => {
 
   test("showErrorAlert works correctly", () => {
     const state = notifications;
-    const newMessage = "New error message"
+    const newMessage = "New error message";
 
     showErrorAlert(state, newMessage);
     expect(state.errorMessage).toEqual(newMessage);
