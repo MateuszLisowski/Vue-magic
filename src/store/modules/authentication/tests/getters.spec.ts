@@ -1,7 +1,7 @@
 import { getters } from '@/store/modules/authentication/getters';
 import { loginData, clearedLoginData } from '@/../fixtures/authentication';
 
-describe('product getters', () => {
+describe('authentication getters', () => {
   test('isAuthenticated should return true when there is a idToken and user is loggged', () => {
     const state = loginData
 

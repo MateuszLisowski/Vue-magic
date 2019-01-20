@@ -68,6 +68,7 @@ export interface userTypes {
 export interface userGetters extends userTypes {
   userFunds: number;
   isPremium: boolean;
+  user: userData;
 }
 
 export interface authenticationGetters {
