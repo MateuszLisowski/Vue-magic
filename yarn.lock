@@ -606,6 +606,12 @@
   version "23.3.12"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.12.tgz#7e0ced251fa94c3bc2d1023d4b84b2992fa06376"
 
+"@types/moxios@^0.4.8":
+  version "0.4.8"
+  resolved "https://registry.yarnpkg.com/@types/moxios/-/moxios-0.4.8.tgz#b478ae7127779be2a8de55e71a5a11333273b06f"
+  dependencies:
+    axios "^0.16.1"
+
 "@types/node@^10.11.7":
   version "10.12.18"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.18.tgz#1d3ca764718915584fcd9f6344621b7672665c67"
@@ -1312,6 +1318,13 @@ aws-sign2@~0.7.0:
 aws4@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
+
+axios@^0.16.1:
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.16.2.tgz#ba4f92f17167dfbab40983785454b9ac149c3c6d"
+  dependencies:
+    follow-redirects "^1.2.3"
+    is-buffer "^1.1.5"
 
 axios@^0.18.0:
   version "0.18.0"
@@ -3597,7 +3610,7 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.1"
     readable-stream "^2.0.4"
 
-follow-redirects@^1.0.0, follow-redirects@^1.3.0:
+follow-redirects@^1.0.0, follow-redirects@^1.2.3, follow-redirects@^1.3.0:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.6.1.tgz#514973c44b5757368bad8bddfe52f81f015c94cb"
   dependencies:

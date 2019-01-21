@@ -5,6 +5,7 @@ const { logout } = actions;
 const setup = () => {
   const context = {
     commit: jest.fn(),
+    dispatch: jest.fn()
   };
 
   return { context };

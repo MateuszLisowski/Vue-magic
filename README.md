@@ -12,7 +12,15 @@
 5. Scss
 6. Bootstrap
 7. Axios
-8. Jest && maxios
+8. Jest
+9. Firebase
+
+## Idea and functionality
+
+It's a basic self-development app to test Vue and connected skills, which I want to improve.
+It contains authentication mechanism, which allows users to login/log out and also manage your profile.
+For example buying premium or change lastname/surname.
+Every data is stored in firebase backend and fetched to vuex store during login.
 
 ## TODO
 
