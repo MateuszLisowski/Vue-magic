@@ -24,7 +24,6 @@ Every data is stored in firebase backend and fetched to vuex store during login.
 
 ## TODO
 
-1. Improve responsiveness
+1. Improve responsiveness (it was project mainly to improve Vue related skills)
 2. Refactor HTML and CSS code (repetitions + rewrite to BEM)
 3. Refactor JS to avoid repetitions
-4. Store notification messages in separate file
